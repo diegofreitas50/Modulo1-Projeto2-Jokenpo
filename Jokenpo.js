@@ -69,9 +69,7 @@ do{
 
     PC: ${placar[1]}
     
-    `)
-
-    console.table(placar)
+    `)    
 
     if(placar[0] > placar[1]){
         console.log(`Parabéns, você venceu por ${placar[0]} a ${placar[1]}.`);
