@@ -1,16 +1,15 @@
 const prompt = require('prompt-sync')();
-// se player ganhar => placar[0]++
-// se robot ganhar => placar[1]++
+
 let playagain = "nao";
-//playagain
+
+//laço playagain
 do{
     //definição das variáveis
-    let placar = [0,0];
-    let rounds = 0;
-    let player = -1;
+    let placar = [0,0]; //player = placar[0]; PC = placar[1]
     const options = ['pedra', 'papel', 'tesoura'];
-    //introdução e escolha do numero de rodadas  
-    console.clear();  
+    console.clear();
+
+    //introdução       
     console.log(`
     Jogo Jokenpô!
 
@@ -21,12 +20,15 @@ do{
     Regras: Pedra ganha da tesoura; Tesoura ganha do papel e papel ganha da pedra.
 
     `);
+
     prompt(`Prescione Enter para continuar.`);
     console.clear();
+
+    //definiçao de nome e rodadas
     const nome = prompt (`Digite seu nome: `).toUpperCase().trim();
     console.log();
     while(true){
-        rounds = +prompt(`Digite o número de rodadas que gostaria de jogar: `).trim();
+        var rounds = +prompt(`Digite o número de rodadas que gostaria de jogar: `).trim();
         if (isNaN(rounds) || rounds < 1){
             console.log(`Número Inválido.`);
         } else{
@@ -34,18 +36,18 @@ do{
         }
     }
     console.clear();
-    //laço para as rodadas       
+
+    //laço rounds      
     for(let i = 0; i < rounds; i++){        
         //escolha e validação do player
         while (true){
-            console.log(`------------------------------------------------------------`);
-            player = prompt(`Round ${i+1}. Escolha "pedra", "papel" ou "tesoura": `).toLowerCase().trim();
+            var player = prompt(`Round ${i+1}. Escolha "pedra", "papel" ou "tesoura": `).toLowerCase().trim();
             if(options.indexOf(player) == -1){
                 console.log(`Resposta inválida!`);
             }else{
                 break;
             }
-        } 
+        }
         console.log();  
 
         //buscando o indice do player no array e atribuindo o valor        
@@ -53,24 +55,27 @@ do{
         player = options[playerIndex];
 
         //escolha do PC
-        let robot = Math.floor(Math.random()*options.length);
-        let respRobot = options[robot];
+        let robotIndex = Math.floor(Math.random()*options.length);
+        let Robot = options[robotIndex];
 
         //calculo do resultado
-        console.log(`Você escolheu "${player}", o PC escolheu "${respRobot}".`);
+        console.log(`Você escolheu "${player}", o PC escolheu "${Robot}".`);
         console.log();
         
-        if(player == "pedra" && respRobot == "papel" || player == "papel" && respRobot == "tesoura" || player == "tesoura" && respRobot == "pedra"){
+        if(player == "pedra" && Robot == "papel" || player == "papel" && Robot == "tesoura" || player == "tesoura" && Robot == "pedra"){
             placar[1]++
             console.log(`O PC ganhou este round. O jogo está em ${placar[1]} a ${placar[0]} para o PC`);
-        }else if(player == "pedra" && respRobot == "tesoura" || player == "papel" && respRobot == "pedra" || player == "tesoura" && respRobot == "papel"){
+        }else if(player == "pedra" && Robot == "tesoura" || player == "papel" && Robot == "pedra" || player == "tesoura" && Robot == "papel"){
             placar[0]++
             console.log(`Parabéns, você ganhou este round. O jogo está em ${placar[0]} a ${placar[1]} para você`);
         }else{
             console.log(`Vocês empataram. Ninguém pontuou neste round.`);
         }
-        console.log();
+        prompt(`Prescione Enter para continuar.`);
+        console.log();        
+        console.clear();
     }
+
     //exibindo o placar final
     console.log(`
     E o jogo termina em:
@@ -79,21 +84,27 @@ do{
 
     PC: ${placar[1]}
     
-    `);    
+    `); 
+
     //comparando placar para indicar o vencedor
     if(placar[0] > placar[1]){
         console.log(`Parabéns, você venceu por ${placar[0]} a ${placar[1]}.`);
+
     }else if(placar[0] < placar[1]){
         console.log(`O PC venceu por ${placar[1]} a ${placar[0]}.`);
+
     }else{
         console.log(`Vocês empataram com ${placar[1]} a ${placar[0]}.`);
     }
     console.log();
+
     //playagain
     while(true){
         playagain = prompt(`Deseja jogar novamente? Responda com "sim" ou "nao": `).toLowerCase().trim();
+        
         if (playagain != "sim" && playagain != "nao"){
             console.log(`Resposta inválida.`);
+
         }else{
             break;
         }        
