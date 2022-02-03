@@ -1,14 +1,14 @@
 const prompt = require('prompt-sync')();
-//definição das variáveis necessárias
 // se player ganhar => placar[0]++
 // se robot ganhar => placar[1]++
-let placar = [0,0];
-let rounds = 0;
-let player = -1;
-const options = ['pedra', 'papel', 'tesoura'];
 let playagain = "nao";
 //playagain
 do{
+    //definição das variáveis
+    let placar = [0,0];
+    let rounds = 0;
+    let player = -1;
+    const options = ['pedra', 'papel', 'tesoura'];
     //introdução e escolha do numero de rodadas  
     console.clear();  
     console.log(`
