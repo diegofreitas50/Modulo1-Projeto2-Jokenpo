@@ -71,10 +71,11 @@ do{
             placar[0]++
             console.log(`Parabéns, você ganhou este round. O jogo está em ${placar[0]} a ${placar[1]} para você`);
         }else{
-            console.log(`Vocês empataram. Ninguém pontuou neste round.`);
+            console.log(`Vocês empataram. Ninguém pontuou neste round. Continua ${placar[0]} a ${placar[1]}`);
         }
-        prompt(`Prescione Enter para continuar.`);
-        console.log();        
+        console.log();  
+
+        prompt(`Prescione Enter para continuar.`);              
         console.clear();
     }
 
