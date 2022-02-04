@@ -5,6 +5,8 @@ let playagain = "nao";
 //laço playagain
 do{
     //definição das variáveis
+    let rounds = 0;
+    let player = -1;
     let placar = [0,0]; //player = placar[0]; PC = placar[1]
     const options = ['pedra', 'papel', 'tesoura'];
     console.clear();
@@ -28,7 +30,7 @@ do{
     const nome = prompt (`Digite seu nome: `).toUpperCase().trim();
     console.log();
     while(true){
-        var rounds = +prompt(`Digite o número de rodadas que gostaria de jogar: `).trim();
+        rounds = +prompt(`Digite o número de rodadas que gostaria de jogar: `).trim();
         if (isNaN(rounds) || rounds < 1){
             console.log(`Número Inválido.`);
         } else{
@@ -41,7 +43,7 @@ do{
     for(let i = 0; i < rounds; i++){        
         //escolha e validação do player
         while (true){
-            var player = prompt(`Round ${i+1}. Escolha "pedra", "papel" ou "tesoura": `).toLowerCase().trim();
+            player = prompt(`Round ${i+1}. Escolha (pedra, papel ou tesoura): `).toLowerCase().trim();
             if(options.indexOf(player) == -1){
                 console.log(`Resposta inválida!`);
             }else{
