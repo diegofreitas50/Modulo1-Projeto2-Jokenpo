@@ -23,7 +23,7 @@ do{
 
     `);
 
-    prompt(`Prescione Enter para continuar.`);
+    prompt(`Pressione Enter para continuar.`);
     console.clear();
 
     //definiçao de nome e rodadas
@@ -75,7 +75,7 @@ do{
         }
         console.log();  
 
-        prompt(`Prescione Enter para continuar.`);              
+        prompt(`Pressione Enter para continuar.`);              
         console.clear();
     }
 
